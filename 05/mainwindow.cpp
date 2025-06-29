@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     );
     ui->l_time->setText(msecToString(stopwatch.elapsed()));
 
-    connect(&stopwatch, &Stopwatch::timeout, this, [=]() {
+    connect(&stopwatch, &Stopwatch::timeout, this, [&]() {
         ui->l_time->setText(msecToString(stopwatch.elapsed()));
     });
 
