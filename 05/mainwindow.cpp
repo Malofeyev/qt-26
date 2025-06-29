@@ -4,7 +4,10 @@
 #include <QElapsedTimer>
 #include <QTime>
 
-constexpr int WINDOW_UPDATE_T = 100;
+#include <chrono>
+
+
+constexpr std::chrono::milliseconds WINDOW_UPDATE_T = std::chrono::milliseconds(100ll);
 
 QString msecToString(qint64 msec) {
     QTime time = QTime::fromMSecsSinceStartOfDay(msec);

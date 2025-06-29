@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-Stopwatch::Stopwatch(/*QObject* parent, */int msec)
+Stopwatch::Stopwatch(/*QObject* parent, */std::chrono::milliseconds msec)
     : QTimer(), msec(msec), prev_time(0), round(0), round_interval(0) {}
 
 

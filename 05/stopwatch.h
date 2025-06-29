@@ -15,7 +15,7 @@ class Stopwatch : public QTimer
 {
 public:
     using QTimer::timeout;
-    Stopwatch(/*QObject* parent,*/ int msec);
+    Stopwatch(/*QObject* parent,*/ std::chrono::milliseconds msec);
     qint64 elapsed() const;
     void start();
     void reset();
