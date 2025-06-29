@@ -4,6 +4,8 @@
 #include <QElapsedTimer>
 #include <QTimer>
 
+#include <chrono>
+
 struct Round {
     int num;
     qint64 interval;
@@ -22,7 +24,7 @@ public:
     Round getRound() const;
     bool isActive() const;
 private:
-    int msec;
+    std::chrono::milliseconds msec;
     QElapsedTimer timer;
 
     int round;

@@ -9,9 +9,8 @@ Stopwatch::Stopwatch(/*QObject* parent, */int msec)
 qint64 Stopwatch::elapsed() const {
     if (isActive()) {
         return timer.elapsed();
-    } else {
-        return 0;
     }
+    return 0;
 }
 
 void Stopwatch::start() {

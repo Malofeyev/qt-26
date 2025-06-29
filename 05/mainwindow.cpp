@@ -8,7 +8,7 @@ constexpr int WINDOW_UPDATE_T = 100;
 
 QString msecToString(qint64 msec) {
     QTime time = QTime::fromMSecsSinceStartOfDay(msec);
-    const QString format = "HH:mm:ss";
+    const QString format = "HH:mm:ss:zzz";
     return time.toString(format);
 }
 
