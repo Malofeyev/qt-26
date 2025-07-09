@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>427</width>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,11 +18,11 @@
     <item>
      <widget class="QGroupBox" name="gb_send">
       <property name="title">
-       <string>Отправление</string>
+       <string>Отправить</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTextEdit" name="te_send"/>
+        <widget class="QTextEdit" name="te_input"/>
        </item>
        <item>
         <widget class="QPushButton" name="pb_send">
@@ -37,14 +37,28 @@
     <item>
      <widget class="QGroupBox" name="gb_receive">
       <property name="title">
-       <string>Получение</string>
+       <string>Принятые данные</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QTextBrowser" name="tBrowser_receive"/>
+        <widget class="QTextEdit" name="te_result"/>
        </item>
        <item>
-        <widget class="QPushButton" name="pb_clear">
+        <widget class="QPushButton" name="pb_start">
+         <property name="text">
+          <string>Начать передачу</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_stop">
+         <property name="text">
+          <string>Остановить передачу</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_clean">
          <property name="text">
           <string>Очистить</string>
          </property>
@@ -55,17 +69,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
