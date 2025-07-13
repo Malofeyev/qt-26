@@ -17,17 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     timer = new QTimer(this);
+
     connect(timer, &QTimer::timeout, this, [&]{
 
         QDateTime dateTime = QDateTime::currentDateTime();
 
-//        QByteArray dataToSend;
-//        QDataStream outStr(&dataToSend, QIODevice::WriteOnly);
-
-//        outStr << dateTime;
-
         udpWorker->SendDatagram(dateTime);
-        timer->start(TIMER_DELAY);
 
     });
 
@@ -41,7 +36,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_start_clicked()
 {
-    udpWorker->Rebind();
     timer->start(TIMER_DELAY);
     ui->pb_start->setEnabled(false);
     ui->pb_stop->setEnabled(true);
@@ -53,7 +47,6 @@ void MainWindow::on_pb_stop_clicked()
     timer->stop();
     ui->pb_start->setEnabled(true);
     ui->pb_stop->setEnabled(false);
-    udpWorker->Close();
 }
 
 

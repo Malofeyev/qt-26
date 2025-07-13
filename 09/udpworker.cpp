@@ -33,9 +33,9 @@ void UDPworker::InitSocket()
      * Соединяем присваиваем адрес и порт серверу и соединяем функцию
      * обраотчик принятых пакетов с сокетом
      */
-    //serviceUdpSocket->bind(QHostAddress::LocalHost, BIND_PORT);
+    serviceUdpSocket->bind(QHostAddress::LocalHost, BIND_PORT);
 
-    //connect(serviceUdpSocket, &QUdpSocket::readyRead, this, &UDPworker::readPendingDatagrams);
+    connect(serviceUdpSocket, &QUdpSocket::readyRead, this, &UDPworker::readPendingDatagrams);
 
 }
 
@@ -95,12 +95,8 @@ void UDPworker::SendDatagram(const QString& str)
     QDataStream outStr(&dataToSend, QIODevice::WriteOnly);
 
     outStr << static_cast<uint8_t>(DataType::STRING) << str;
-    if (serviceUdpSocket->isOpen()) {
-        serviceUdpSocket->writeDatagram(dataToSend, QHostAddress::LocalHost, BIND_PORT);
-    } else {
-        QUdpSocket socket;
-        socket.writeDatagram(dataToSend, QHostAddress::LocalHost, BIND_PORT);
-    }
+    serviceUdpSocket->writeDatagram(dataToSend, QHostAddress::LocalHost, BIND_PORT);
+
 }
 
 /*!
@@ -118,11 +114,4 @@ void UDPworker::readPendingDatagrams( void )
 
 }
 
-void UDPworker::Close() {
-    serviceUdpSocket->close();
-}
 
-void UDPworker::Rebind() {
-    serviceUdpSocket->bind(QHostAddress::LocalHost, BIND_PORT, QUdpSocket::ReuseAddressHint);
-    connect(serviceUdpSocket, &QUdpSocket::readyRead, this, &UDPworker::readPendingDatagrams);
-}

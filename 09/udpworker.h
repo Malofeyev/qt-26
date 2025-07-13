@@ -23,8 +23,6 @@ public:
     void ReadDatagram(QNetworkDatagram datagram);
     void SendDatagram(QDateTime date);
     void SendDatagram(const QString& str);
-    void Close();
-    void Rebind();
 
 
 private slots:
